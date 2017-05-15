@@ -6,8 +6,18 @@
  *
  * Please do not change this file! All configuration is handled in "ws2812_config.h"
  *
- * License: GNU GPL v2 (see License.txt)
- +
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 2 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
 #ifndef LIGHT_WS2812_H_
@@ -17,13 +27,6 @@
 #include <avr/interrupt.h>
 //#include "ws2812_config.h"
 //#include "i2cmaster.h"
-
-#define LIGHT_I2C 1
-#define LIGHT_I2C_ADDR        0x84
-#define LIGHT_I2C_ADDR_WRITE  ( (LIGHT_I2C_ADDR<<1) | I2C_WRITE )
-#define LIGHT_I2C_ADDR_READ   ( (LIGHT_I2C_ADDR<<1) | I2C_READ  )
-
-#define RGBW 1
 
 #ifdef RGBW
   #define LED_TYPE struct cRGBW
