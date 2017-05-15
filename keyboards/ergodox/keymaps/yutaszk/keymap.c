@@ -25,7 +25,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *                                 ,------|------|------|       |------+------+------.
  *                                 |      |      |  END |       | PgDn |      |      |
  *                                 | Space|  GUI |------|       |------| Enter| Space|
- *                                 |/Shift|      | MODE |       | Layer| /~L2 |/Shift|
+ *                                 |/Shift|      | RV-ON|       |  NO  | /~L2 |/Shift|
  *                                 `--------------------'       `--------------------'
  */
 // If it accepts an argument (i.e, is a function), it doesn't need KC_.
@@ -48,7 +48,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                        LT(SYMB, KC_LPRN),    KC_LEFT,    KC_DOWN,    KC_UP,      KC_RIGHT,
         KC_PGUP,        KC_LBRC,
         KC_PGDN,
-        TG(SYMB),       LT(SYMB,KC_ENT), SFT_T(KC_SPC)
+        KC_NO,         LT(SYMB,KC_ENT), SFT_T(KC_SPC)
 ),
 /* Keymap 1: Control / GUI reversal
  *
@@ -68,7 +68,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *                                 ,------|------|------|       |------+------+------.
  *                                 |      |      |      |       |      |      |      |
  *                                 |      | LCTL |------|       |------|      |      |
- *                                 |      |      | MODE |       |      |      |      |
+ *                                 |      |      |  NO  |       |RV-OFF|      |      |
  *                                 `--------------------'       `--------------------'
  */
 [RVRS] = KEYMAP(
@@ -80,7 +80,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
        KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,
                                        KC_TRNS,KC_TRNS,
                                                KC_TRNS,
-                               KC_TRNS,KC_LCTL,KC_TRNS,
+                               KC_TRNS,KC_LCTL,KC_NO,
        // right hand
        KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,
        KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,
@@ -89,7 +89,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                        KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,
        KC_TRNS,KC_TRNS,
        KC_TRNS,
-       KC_TRNS,KC_TRNS,KC_TRNS
+       TG(RVRS),KC_TRNS,KC_TRNS
 ),
 /* Keymap 2: Symbol Layer
  *
