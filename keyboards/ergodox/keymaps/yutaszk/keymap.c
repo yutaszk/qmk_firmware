@@ -98,7 +98,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |--------+------+------+------+------+-------------|           |------+------+------+------+------+------+--------|
  * |        |      |      |  END |      |      |      |           |      |      |      |      |      |  UP  |        |
  * |--------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
- * |        | HOME |      |      | RIGHT|      |------|           |------|  LEFT| DOWN |  UP  | RIGHT|   =  |    ~   |
+ * |        | HOME |      |      | RIGHT|      |------|           |------|  LEFT| DOWN |  UP  | RIGHT|   '  |    ~   |
  * |--------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
  * |        |      |      |      |      | LEFT |      |           |   `  | DOWN |      |      |      |      |        |
  * `--------+------+------+------+------+-------------'           `-------------+------+------+------+------+--------'
@@ -126,7 +126,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
        // right hand
        KC_F7,  KC_F8,  KC_F9,  KC_F10, KC_F11, KC_F12, KC_DEL,
        KC_TRNS, KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_UP  ,KC_TRNS,
-               KC_LEFT,KC_DOWN,KC_UP,  KC_RIGHT,KC_EQL,KC_TRNS,
+               KC_LEFT,KC_DOWN,KC_UP,  KC_RIGHT,KC_QUOT,KC_TRNS,
        KC_GRV ,KC_DOWN,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,
                        KC_LBRC,KC_HOME,KC_PGDN,KC_PGUP,KC_END,
        KC_TRNS,KC_TRNS,
