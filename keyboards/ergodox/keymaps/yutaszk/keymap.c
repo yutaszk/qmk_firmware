@@ -6,6 +6,8 @@
 #define RVRS 1 // control / gui reversal
 #define SYMB 2 // symbols
 
+#define M_ARROW M(0)
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 /* Keymap 0: Basic layer
  *
@@ -98,7 +100,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |--------+------+------+------+------+-------------|           |------+------+------+------+------+------+--------|
  * |        |      |      |  END |      |      |      |           |      |      |      |      |      |  UP  |        |
  * |--------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
- * |        | HOME |      |      | RIGHT|      |------|           |------|  LEFT| DOWN |  UP  | RIGHT|   '  |    ~   |
+ * |        | HOME |      |      | RIGHT|      |------|           |------|  LEFT| DOWN |  UP  | RIGHT|   '  |  ->/=> |
  * |--------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
  * |        |      |      |      |      | LEFT |      |           |   `  | DOWN |      |      |      |      |        |
  * `--------+------+------+------+------+-------------'           `-------------+------+------+------+------+--------'
@@ -126,7 +128,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
        // right hand
        KC_F7,  KC_F8,  KC_F9,  KC_F10, KC_F11, KC_F12, KC_DEL,
        KC_TRNS, KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_UP  ,KC_TRNS,
-               KC_LEFT,KC_DOWN,KC_UP,  KC_RIGHT,KC_QUOT,KC_TRNS,
+               KC_LEFT,KC_DOWN,KC_UP,  KC_RIGHT,KC_QUOT,M_ARROW,
        KC_GRV ,KC_DOWN,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,
                        KC_LBRC,KC_HOME,KC_PGDN,KC_PGUP,KC_END,
        KC_TRNS,KC_TRNS,
@@ -140,15 +142,23 @@ const uint16_t PROGMEM fn_actions[] = {};
 const macro_t *action_get_macro(keyrecord_t *record, uint8_t id, uint8_t opt)
 {
   // MACRODOWN only works in this function
-      switch(id) {
-        case 0:
+    switch(id) {
+      case 0:
         if (record->event.pressed) {
-          register_code(KC_RSFT);
-        } else {
-          unregister_code(KC_RSFT);
+          if (keyboard_report->mods & MOD_BIT(KC_LSFT)) {
+            clear_mods();
+            SEND_STRING("=>");
+            register_code(KC_LSFT);
+          } else if (keyboard_report->mods & MOD_BIT(KC_RSFT)) {
+            clear_mods();
+            SEND_STRING("=>");
+            register_code(KC_RSFT);
+          } else {
+            SEND_STRING("->");
+          }
         }
         break;
-      }
+    }
     return MACRO_NONE;
 };
 
